@@ -8,7 +8,7 @@ import com.examserver.examserver.service.UserService;
 import jakarta.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,6 +23,9 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+    
     // create user
     @PostMapping("/")
     public User createUser(@RequestBody @Valid User user, 
@@ -32,6 +35,8 @@ public class UserController {
             System.out.println(bindingResult.getAllErrors());;
         }
         user.setProfile("default.png");
+        user.setPassword(this.passwordEncoder.encode(user.getPassword()));
+        
         Set<UserRole> roles = new HashSet<>();
 
         Role role = new Role();

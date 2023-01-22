@@ -2,7 +2,6 @@ package com.examserver.examserver.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import io.micrometer.common.lang.NonNull;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
@@ -38,7 +37,6 @@ public class User implements UserDetails {
     private String username;
 
     @NotEmpty(message = "Password should not be empty")
-    @Size(min = 4, max = 20)
     private String password;
 
     @NotEmpty(message = "firstName should not be empty")
