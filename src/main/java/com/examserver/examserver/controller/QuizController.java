@@ -39,14 +39,14 @@ public class QuizController {
         return ResponseEntity.ok(this.quizService.getQuizzes());
     }
     
-    @GetMapping("/{quizeId}")
-    public Quiz quiz(@PathVariable("quizeId") Long quizId) {
+    @GetMapping("/{quizId}")
+    public Quiz quiz(@PathVariable("quizId") Long quizId) {
         return this.quizService.getQuiz(quizId);
     }
 
-    @DeleteMapping("/{quizeId}")
-    public void delete(@PathVariable("/{quizeId}") Long quizeId) {
-        this.quizService.deleteQuiz(quizeId);
+    @DeleteMapping("/{quizId}")
+    public void delete(@PathVariable("quizId") Long quizId) {
+        this.quizService.deleteQuiz(quizId);
     }
 
 }
