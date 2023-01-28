@@ -3,7 +3,7 @@ spring:
     driver-class-name: org.postgresql.Driver
     username: ${PGUSER}
     password: ${PGPASSWORD}
-    url: jdbc:postgresql://${PGUSER}:${PGPASSWORD}@${PGHOST}:${PGPORT}/${PGDATABASE}
+    url: jdbc:postgresql://${PGHOST}:${PGPORT}/${PGDATABASE}
   jpa:
     show-sql: true
     generate-ddl: true
