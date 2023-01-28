@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: ${ PGUSER }
+    password: ${ PGPASSWORD }
+    url: jdbc:postgresql://${{ PGUSER }}:${{ PGPASSWORD }}@${{ PGHOST }}:${{ PGPORT }}/${{ PGDATABASE }}
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    database: postgresql
+
+
+# database configuration
+# spring.datasource.url=jdbc:postgresql://${{ PGUSER }}:${{ PGPASSWORD }}@${{ PGHOST }}:${{ PGPORT }}/${{ PGDATABASE }}
+# spring.datasource.username=${ PGUSER }
+# spring.datasource.password=${ PGPASSWORD }
+
+#jpa configuration
+# spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
+# spring.jpa.hibernate.ddl-auto=update
+# spring.jpa.hibernate.show-sql=true
+# spring.jpa.properties.hibernate.format_sql=true
