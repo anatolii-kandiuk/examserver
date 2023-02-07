@@ -1,5 +1,7 @@
 package com.examserver.examserver.model.exam;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -38,6 +40,7 @@ public class Question {
 
     private String optionFour;
 
+    @JsonIgnore
     private String answer;
 
     @ManyToOne(fetch = FetchType.EAGER)
