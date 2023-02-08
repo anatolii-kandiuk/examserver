@@ -66,11 +66,15 @@ public class QuestionController {
         
         Set<Question> questions = quiz.getQuestions();
 
-        List list = new ArrayList(questions);
+        List<Question> list = new ArrayList(questions);
 
         if(list.size() > Integer.parseInt(quiz.getNumberOfQuestion())) {
             list = list.subList(0, Integer.parseInt(quiz.getNumberOfQuestion()+1));
         }
+
+        list.forEach((q) -> {
+            q.setAnswer("");
+        });
 
         Collections.shuffle(list);
         
