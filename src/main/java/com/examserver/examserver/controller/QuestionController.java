@@ -56,17 +56,11 @@ public class QuestionController {
 
     @GetMapping("/quiz/{quizId}")
     public ResponseEntity<?> getQuestionsOfQuiz(@PathVariable("quizId") Long quizId) {
-        // Quiz quiz = new Quiz();
-        // quiz.setQuizId(quizId);
-        // Set<Question> questionsOfQuiz = this.questionService.getQuestionsOfQuiz(quiz);
-        
-        // return ResponseEntity.ok(questionsOfQuiz);
-        
         Quiz quiz = this.quizService.getQuiz(quizId);
         
         Set<Question> questions = quiz.getQuestions();
 
-        List<Question> list = new ArrayList(questions);
+        List<Question> list = new ArrayList<Question>(questions);
 
         if(list.size() > Integer.parseInt(quiz.getNumberOfQuestion())) {
             list = list.subList(0, Integer.parseInt(quiz.getNumberOfQuestion()+1));
